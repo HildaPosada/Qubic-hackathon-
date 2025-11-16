@@ -61,25 +61,22 @@ struct QubicContract {
   }
 
   return (
-    <div className="flex flex-col h-full bg-dark-bg overflow-hidden">
+    <div className="flex flex-col h-full bg-white">
       {/* Toolbar */}
-      <div className="bg-gradient-to-r from-dark-card to-dark-bg/50 border-b border-qubic-500/20 px-6 py-4 flex items-center justify-between backdrop-blur-sm">
+      <div className="border-b border-surface-200 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <div className="p-2 rounded-lg bg-qubic-600/20 border border-qubic-500/30">
-            <FileCode size={20} className="text-qubic-400" />
-          </div>
+          <FileCode size={20} className="text-primary-600" />
           <div>
-            <div className="text-sm font-bold text-gray-200">contract.cpp</div>
-            <div className="text-xs text-gray-500">C++ • Qubic Smart Contract</div>
+            <div className="text-sm font-semibold text-surface-900">contract.cpp</div>
+            <div className="text-xs text-surface-500">C++ • Smart Contract</div>
           </div>
         </div>
 
         <div className="flex items-center space-x-2">
-          {/* Compile Button */}
           <button
             onClick={handleCompile}
             disabled={isCompiling}
-            className={`btn ${hasCompiled ? 'bg-green-600 hover:bg-green-700' : 'btn-primary'} text-sm flex items-center space-x-2 transition-all`}
+            className={`btn ${hasCompiled ? 'bg-secondary-600 hover:bg-secondary-700 text-white' : 'btn-primary'} text-sm flex items-center space-x-2`}
           >
             {hasCompiled ? (
               <>
@@ -99,40 +96,31 @@ struct QubicContract {
             )}
           </button>
 
-          {/* Copy Button */}
           <button
             onClick={copyCode}
             className="btn btn-secondary text-sm flex items-center space-x-2"
-            title="Copy code"
           >
             <Copy size={16} />
             <span>Copy</span>
           </button>
 
-          {/* Save Button */}
           <button className="btn btn-secondary text-sm flex items-center space-x-2">
             <Save size={16} />
             <span>Save</span>
-          </button>
-
-          {/* AI Suggestion Button */}
-          <button className="btn btn-ghost text-sm flex items-center space-x-2 ml-2">
-            <Lightbulb size={16} />
-            <span>Optimize</span>
           </button>
         </div>
       </div>
 
       {/* Monaco Editor */}
-      <div className="flex-1 overflow-hidden bg-dark-bg">
+      <div className="flex-1 overflow-hidden">
         <MonacoEditor
           height="100%"
           language="cpp"
-          theme="vs-dark"
+          theme="vs"
           value={code || defaultCode}
           onChange={(value) => setCode(value || '')}
           options={{
-            minimap: { enabled: true, side: 'right' },
+            minimap: { enabled: false },
             fontSize: 14,
             lineNumbers: 'on',
             rulers: [80, 120],
@@ -148,7 +136,6 @@ struct QubicContract {
             scrollbar: {
               vertical: 'auto',
               horizontal: 'auto',
-              useShadows: true,
               verticalSliderSize: 12,
               horizontalSliderSize: 12,
             },
@@ -157,25 +144,16 @@ struct QubicContract {
       </div>
 
       {/* Status Bar */}
-      <div className="bg-gradient-to-r from-dark-card to-dark-bg/50 border-t border-qubic-500/20 px-6 py-3 text-sm backdrop-blur-sm flex items-center justify-between">
-        <div className="flex items-center space-x-6 text-gray-400">
-          <span className="flex items-center space-x-2 hover:text-gray-300 cursor-help">
-            <span className="text-xs font-medium">Lines:</span>
-            <span className="font-semibold text-gray-300">{code.split('\n').length}</span>
-          </span>
-          <span className="flex items-center space-x-2 hover:text-gray-300 cursor-help">
-            <span className="text-xs font-medium">Characters:</span>
-            <span className="font-semibold text-gray-300">{code.length}</span>
-          </span>
-          <span className="flex items-center space-x-2 hover:text-gray-300 cursor-help">
-            <span className="text-xs font-medium">Language:</span>
-            <span className="font-semibold text-qubic-400">C++</span>
-          </span>
+      <div className="border-t border-surface-200 px-6 py-3 text-sm bg-surface-50 flex items-center justify-between">
+        <div className="flex items-center space-x-6 text-surface-600">
+          <span>Lines: <span className="font-semibold text-surface-900">{code.split('\n').length}</span></span>
+          <span>Characters: <span className="font-semibold text-surface-900">{code.length}</span></span>
+          <span>Language: <span className="font-semibold text-primary-600">C++</span></span>
         </div>
 
         <div className="flex items-center space-x-2">
-          <div className="status-indicator status-indicator-success animate-pulse"></div>
-          <span className="text-xs font-medium text-qubic-400">Qubic SDK Ready</span>
+          <div className="status-dot status-dot-active"></div>
+          <span className="text-primary-600 font-medium">Qubic SDK Ready</span>
         </div>
       </div>
     </div>
