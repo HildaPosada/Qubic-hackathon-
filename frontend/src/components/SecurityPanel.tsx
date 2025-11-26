@@ -131,7 +131,7 @@ export default function SecurityPanel({ code, securityScore, setSecurityScore }:
         {auditResult && (
           <div className="space-y-6">
             {/* Score Card */}
-            <div className="card p-6">
+            <div className="card p-6 border border-surface-100 shadow-sm hover:shadow-md transition-all">
               <div className="flex items-start justify-between">
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-surface-900 mb-2">Security Score</h3>
@@ -141,8 +141,8 @@ export default function SecurityPanel({ code, securityScore, setSecurityScore }:
                   <div className={`text-4xl font-bold ${getScoreColor(auditResult.score)}`}>
                     {auditResult.score}
                   </div>
-                  <div className="text-xs text-surface-500 mt-1">/ 100</div>
-                  <div className="text-xs font-semibold text-surface-700 mt-2">
+                  <div className="text-xs text-surface-500 mt-1 font-medium">/ 100</div>
+                  <div className="text-xs font-bold text-surface-700 mt-2">
                     {getScoreLabel(auditResult.score)}
                   </div>
                 </div>
