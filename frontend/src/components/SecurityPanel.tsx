@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Shield, AlertTriangle, CheckCircle, XCircle, Info, Loader2 } from 'lucide-react'
 import toast from 'react-hot-toast'
+import { api } from '../services/api'
 
 interface SecurityPanelProps {
   code: string
@@ -21,13 +22,7 @@ export default function SecurityPanel({ code, securityScore, setSecurityScore }:
     setIsAuditing(true)
 
     try {
-      const response = await fetch('/api/audit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code, contract_name: 'MyContract' })
-      })
-
-      const data = await response.json()
+      const data = await api.audit(code, 'MyContract')
 
       if (data.success) {
         setAuditResult(data)

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { TrendingUp, Users, Zap, DollarSign, BarChart3, Target, Shield } from 'lucide-react'
+import { api } from '../services/api'
 
 export default function StatsPanel() {
   const [stats, setStats] = useState<any>(null)
 
   useEffect(() => {
-    fetch('/api/stats')
-      .then(res => res.json())
+    api.getStats()
       .then(data => setStats(data.stats))
       .catch(() => {
         // Mock data for demo

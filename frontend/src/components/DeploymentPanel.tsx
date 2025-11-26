@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Rocket, Loader2, CheckCircle, ExternalLink, Copy, Shield, Gauge, Zap } from 'lucide-react'
 import toast from 'react-hot-toast'
+import { api } from '../services/api'
 
 interface DeploymentPanelProps {
   code: string
@@ -20,16 +21,7 @@ export default function DeploymentPanel({ code }: DeploymentPanelProps) {
     setIsDeploying(true)
 
     try {
-      const response = await fetch(`/api/deploy/${network}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contract_id: 'temp_' + Date.now(),
-          network
-        })
-      })
-
-      const data = await response.json()
+      const data = await api.deploy('temp_' + Date.now(), network)
 
       if (data.success) {
         setDeployment(data.deployment)
