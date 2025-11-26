@@ -93,14 +93,16 @@ export default function AIAssistant({ code, setCode }: AIAssistantProps) {
   }
 
   return (
-    <div className="flex flex-col h-full bg-white border-l border-surface-200">
+    <div className="flex flex-col h-full bg-gradient-to-b from-white to-surface-50 border-l border-surface-100">
       {/* Header */}
-      <div className="border-b border-surface-200 px-6 py-4">
-        <div className="flex items-center space-x-2 mb-1">
-          <Sparkles size={20} className="text-accent-600" />
+      <div className="border-b border-surface-100 px-6 py-5 bg-white">
+        <div className="flex items-center space-x-3 mb-1">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-500 to-primary-600 flex items-center justify-center">
+            <Sparkles size={18} className="text-white" />
+          </div>
           <h3 className="font-bold text-surface-900">Aigarth AI</h3>
         </div>
-        <p className="text-xs text-surface-500">Powered by Qubic's AI Layer</p>
+        <p className="text-xs text-surface-500 font-medium">Powered by Qubic's AI Layer</p>
       </div>
 
       {/* Messages */}
@@ -108,13 +110,13 @@ export default function AIAssistant({ code, setCode }: AIAssistantProps) {
         {messages.map((msg) => (
           <div
             key={msg.id}
-            className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in`}
+            className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}
           >
             <div
-              className={`max-w-xs rounded-lg px-4 py-3 text-sm ${
+              className={`max-w-xs rounded-xl px-4 py-3 text-sm ${
                 msg.role === 'user'
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-surface-50 text-surface-900 border border-surface-200'
+                  ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white shadow-md'
+                  : 'bg-white text-surface-900 border border-surface-100 shadow-sm'
               }`}
             >
               <div className="whitespace-pre-wrap">{msg.content}</div>
@@ -123,8 +125,8 @@ export default function AIAssistant({ code, setCode }: AIAssistantProps) {
         ))}
 
         {isGenerating && (
-          <div className="flex justify-start animate-in">
-            <div className="bg-surface-50 border border-surface-200 rounded-lg px-4 py-3 flex items-center space-x-2">
+          <div className="flex justify-start animate-fade-in">
+            <div className="bg-white border border-surface-100 rounded-xl px-4 py-3 flex items-center space-x-2 shadow-sm">
               <Loader2 size={16} className="animate-spin text-primary-600" />
               <span className="text-sm text-surface-700">Generating...</span>
             </div>
@@ -136,9 +138,9 @@ export default function AIAssistant({ code, setCode }: AIAssistantProps) {
 
       {/* Quick Actions */}
       {messages.length <= 1 && (
-        <div className="px-6 py-4 border-t border-surface-200">
-          <div className="text-xs font-semibold text-surface-500 mb-3 flex items-center space-x-2">
-            <Zap size={14} />
+        <div className="px-6 py-4 border-t border-surface-100 bg-white">
+          <div className="text-xs font-bold text-surface-600 mb-3 flex items-center space-x-2">
+            <Zap size={14} className="text-accent-600" />
             <span>Quick Start</span>
           </div>
           <div className="grid grid-cols-2 gap-2">
@@ -147,7 +149,7 @@ export default function AIAssistant({ code, setCode }: AIAssistantProps) {
                 key={idx}
                 onClick={() => handleGenerate(p)}
                 disabled={isGenerating}
-                className="text-xs btn btn-secondary py-2 px-3 text-left hover:bg-primary-50 hover:border-primary-300"
+                className="text-xs py-2 px-3 rounded-lg bg-white border border-surface-100 text-surface-700 hover:border-primary-300 hover:bg-primary-50 transition-all text-left font-medium"
               >
                 {p}
               </button>
@@ -157,7 +159,7 @@ export default function AIAssistant({ code, setCode }: AIAssistantProps) {
       )}
 
       {/* Input */}
-      <div className="border-t border-surface-200 p-4">
+      <div className="border-t border-surface-100 p-4 bg-white">
         <div className="flex space-x-2">
           <input
             type="text"
@@ -165,13 +167,13 @@ export default function AIAssistant({ code, setCode }: AIAssistantProps) {
             onChange={(e) => setPrompt(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && !isGenerating && handleGenerate()}
             placeholder="Describe your smart contract..."
-            className="input flex-1 text-sm"
+            className="input flex-1 text-sm bg-surface-50 border-surface-200"
             disabled={isGenerating}
           />
           <button
             onClick={() => handleGenerate()}
             disabled={isGenerating || !prompt.trim()}
-            className="btn btn-primary p-2.5 flex items-center justify-center"
+            className="px-3 py-2 rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 text-white font-medium hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center"
           >
             <Send size={18} />
           </button>
