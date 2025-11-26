@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { TrendingUp, Users, Zap, DollarSign, BarChart3, Target } from 'lucide-react'
+import { TrendingUp, Users, Zap, DollarSign, BarChart3, Target, Shield } from 'lucide-react'
 
 export default function StatsPanel() {
   const [stats, setStats] = useState<any>(null)
