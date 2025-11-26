@@ -33,7 +33,7 @@ export default function StatsPanel() {
 
   if (!stats) {
     return (
-      <div className="flex items-center justify-center h-full bg-white">
+      <div className="flex items-center justify-center h-full bg-gradient-to-b from-white to-surface-50">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary-500 border-t-transparent mx-auto mb-4"></div>
           <p className="text-surface-600">Loading statistics...</p>
@@ -43,11 +43,13 @@ export default function StatsPanel() {
   }
 
   return (
-    <div className="flex flex-col h-full bg-white overflow-y-auto panel-scroll">
+    <div className="flex flex-col h-full bg-gradient-to-b from-white to-surface-50 overflow-y-auto panel-scroll">
       {/* Header */}
-      <div className="border-b border-surface-200 px-6 py-6 sticky top-0 bg-white">
-        <div className="flex items-center space-x-3">
-          <BarChart3 size={24} className="text-primary-600" />
+      <div className="border-b border-surface-100 px-6 py-6 sticky top-0 bg-white">
+        <div className="flex items-center space-x-4">
+          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-100 to-accent-100 flex items-center justify-center">
+            <BarChart3 size={24} className="text-primary-600" />
+          </div>
           <div>
             <h2 className="text-2xl font-bold text-surface-900">Statistics</h2>
             <p className="text-sm text-surface-500">Platform metrics and impact</p>
