@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Sparkles, Zap, Code2, Lock, Rocket } from 'lucide-react'
+import toast from 'react-hot-toast'
 
 export default function Header() {
+  const [walletConnected, setWalletConnected] = useState(false)
+  const [walletAddress, setWalletAddress] = useState('')
+
+  const handleConnectWallet = async () => {
+    try {
+      // Simulate wallet connection (in production, would connect to Qubic wallet)
+      const mockAddress = 'QUBIC' + Math.random().toString(36).substring(2, 15).toUpperCase()
+      setWalletAddress(mockAddress)
+      setWalletConnected(true)
+      toast.success('Wallet connected successfully!')
+    } catch (error) {
+      toast.error('Failed to connect wallet')
+    }
+  }
+
+  const handleDisconnectWallet = () => {
+    setWalletAddress('')
+    setWalletConnected(false)
+    toast.success('Wallet disconnected')
+  }
   return (
     <header className="bg-white border-b border-surface-200">
       <div className="max-w-7xl mx-auto px-6 py-6">
@@ -22,9 +43,24 @@ export default function Header() {
               <div className="status-dot status-dot-active"></div>
               <span className="text-sm font-medium text-surface-700">Qubic Testnet</span>
             </div>
-            <button className="btn btn-primary">
-              Connect Wallet
-            </button>
+            {walletConnected ? (
+              <button
+                onClick={handleDisconnectWallet}
+                className="btn btn-secondary flex items-center space-x-2"
+              >
+                <div className="status-dot status-dot-active"></div>
+                <span className="font-mono text-xs">
+                  {walletAddress.substring(0, 8)}...{walletAddress.substring(walletAddress.length - 6)}
+                </span>
+              </button>
+            ) : (
+              <button
+                onClick={handleConnectWallet}
+                className="btn btn-primary"
+              >
+                Connect Wallet
+              </button>
+            )}
           </div>
         </div>
 
