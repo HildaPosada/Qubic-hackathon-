@@ -131,10 +131,10 @@ export default function StatsPanel() {
                 value: stats.platform_benefits.developers_onboarded.toLocaleString(),
               },
             ].map((benefit, idx) => (
-              <div key={idx} className={`card p-5 ${idx % 2 === 0 ? 'bg-accent-50' : 'bg-secondary-50'}`}>
+              <div key={idx} className={`card p-5 border border-surface-100 shadow-sm hover:shadow-md transition-all ${idx % 2 === 0 ? 'bg-accent-50' : 'bg-secondary-50'}`}>
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="font-semibold text-surface-900">{benefit.title}</div>
+                    <div className="font-bold text-surface-900">{benefit.title}</div>
                     <div className="text-xs text-surface-600 mt-0.5">{benefit.desc}</div>
                   </div>
                   <div className="text-2xl font-bold text-primary-600">{benefit.value}</div>
@@ -154,10 +154,10 @@ export default function StatsPanel() {
               { label: 'Finality', value: stats.qubic_advantages.finality, icon: '✅' },
               { label: 'Language', value: stats.qubic_advantages.language, icon: '🏎️' },
             ].map((adv, idx) => (
-              <div key={idx} className="card p-5 text-center">
+              <div key={idx} className="card p-5 text-center border border-surface-100 shadow-sm hover:shadow-md transition-all">
                 <div className="text-3xl mb-2">{adv.icon}</div>
                 <div className="text-xl font-bold text-surface-900 mb-1">{adv.value}</div>
-                <div className="text-xs text-surface-600">{adv.label}</div>
+                <div className="text-xs text-surface-600 font-medium">{adv.label}</div>
               </div>
             ))}
           </div>
@@ -189,9 +189,9 @@ export default function StatsPanel() {
                 vs: 'vs. steep traditional setup',
               },
             ].map((item, idx) => (
-              <div key={idx} className={`card p-5 border-l-4 ${idx % 2 === 0 ? 'border-l-primary-600 bg-primary-50' : 'border-l-accent-600 bg-accent-50'}`}>
+              <div key={idx} className={`card p-5 border-l-4 border border-surface-100 shadow-sm hover:shadow-md transition-all ${idx % 2 === 0 ? 'border-l-primary-600 bg-primary-50' : 'border-l-accent-600 bg-accent-50'}`}>
                 <div className="flex items-center justify-between mb-1">
-                  <div className="font-semibold text-surface-900">{item.metric}</div>
+                  <div className="font-bold text-surface-900">{item.metric}</div>
                   <div className="text-lg font-bold text-primary-600">{item.value}</div>
                 </div>
                 <div className="text-xs text-surface-600">{item.vs}</div>
