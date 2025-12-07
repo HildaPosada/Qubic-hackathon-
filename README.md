@@ -23,7 +23,7 @@
 - [Demo](#-demo)
 - [Economic Impact](#-economic-impact)
 - [Tech Stack](#-tech-stack)
-- [Team](#-team)
+- [Team](#-our-team)
 
 ---
 
@@ -533,8 +533,7 @@ git push origin feature/amazing-feature
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-  <h1><u>Our Team</u></h1>
-
+## Our Team
   <table>
     <tr>
       <td>
