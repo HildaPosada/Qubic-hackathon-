@@ -352,54 +352,6 @@ See [ARCHITECTURE.md](./ARCHITECTURE.md) for detailed technical architecture.
 
 ---
 
-## 🎪 Demo
-
-### 5-Minute Demo Flow
-
-**Minute 1: Problem**
-- Show traditional smart contract development (complex, slow, expensive)
-- Highlight C++ barrier for Qubic adoption
-
-**Minute 2: AI Generation**
-```
-User types: "Create a voting contract with delegation"
-↓
-AI generates complete contract in 5 seconds
-↓
-Side-by-side: Weeks of coding vs 5 seconds
-```
-
-**Minute 3: Security Audit**
-```
-Click "Run Audit"
-↓
-Security Score: 95/100 - PASSED
-↓
-2 minor issues detected with fixes
-↓
-Compare: $50K-$200K audit vs FREE + instant
-```
-
-**Minute 4: Deployment**
-```
-Click "Deploy to Testnet"
-↓
-Instant deployment (< 1 second)
-↓
-Contract live at: QUBIC7A3F...
-↓
-Gas used: 0 (feeless!)
-```
-
-**Minute 5: Impact**
-```
-Show dashboard:
-- $75,000 saved per contract
-- 10x faster development
-- 100K+ developers onboarded
-- Qubic ecosystem growth
-```
-
 ### Live Demo Video
 
 [🎥 Watch Demo Video](https://youtu.be/demo-link) *(to be recorded)*
@@ -581,14 +533,37 @@ git push origin feature/amazing-feature
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
+  <h1><u>Our Team</u></h1>
 
-## 👥 Team
-
-**Built for Qubic Hack the Future Hackathon**
-
-- **Project Lead:** [Your Name]
-- **Powered by:** Qubic Blockchain
-- **AI Integration:** Aigarth AI
+  <table>
+    <tr>
+      <td>
+        <a href="https://github.com/">
+          <img src="https://avatars.githubusercontent.com/u/139736274?s=400&u=92616bfda6d10b31bd7fcf134741981dd89b57ab&v=4" width="100" alt="Hilda Posada"/><br>
+          <sub><b>Hilda Posada</b></sub>
+        </a>
+      </td>
+      <td>         
+        <a href="https://github.com/">
+          <img src="https://avatars.githubusercontent.com" width="100" alt="picture"/><br>
+          <sub><b>name</b></sub>
+        </a>
+      </td>
+      <td>
+        <a href="https://github.com/">
+          <img src="https://avatars.githubusercontent.com" width="100" alt="pictue"/><br>
+          <sub><b>name</b></sub>
+        </a>
+      </td>
+      <td>
+       <a href="https://github.com/">
+          <img src="https://avatars.githubusercontent.com" width="100" alt="picture"/><br>
+          <sub><b>name</b></sub>
+        </a>
+      </td>
+      <td>
+    </tr>
+  </table>
 
 ---
 
