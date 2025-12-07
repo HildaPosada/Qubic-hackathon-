@@ -1,0 +1,39 @@
+# Railway Ignore - Don't deploy these files
+
+# Frontend (not needed for backend deployment)
+frontend/
+Dockerfile.frontend
+docker-compose.yml
+
+# Development files
+*.sh
+.env.example
+.git/
+.github/
+
+# Documentation
+*.md
+!RAILWAY_DEPLOY.md
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg-info/
+
+# Testing
+.pytest_cache/
+tests/
+
+# Logs
+*.log
+logs/
