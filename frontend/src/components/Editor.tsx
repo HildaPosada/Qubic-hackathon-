@@ -56,6 +56,23 @@ struct QubicContract {
     toast.success('Code copied to clipboard!')
   }
 
+  const handleSave = async () => {
+    try {
+      const blob = new Blob([code || defaultCode], { type: 'text/plain' })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'contract.cpp'
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(url)
+      toast.success('Contract saved successfully!')
+    } catch (error) {
+      toast.error('Failed to save contract')
+    }
+  }
+
   return (
     <div className="flex flex-col h-full bg-white">
       {/* Toolbar */}
@@ -100,7 +117,10 @@ struct QubicContract {
             <span>Copy</span>
           </button>
 
-          <button className="btn btn-secondary text-sm flex items-center space-x-2">
+          <button
+            onClick={handleSave}
+            className="btn btn-secondary text-sm flex items-center space-x-2"
+          >
             <Save size={16} />
             <span>Save</span>
           </button>
