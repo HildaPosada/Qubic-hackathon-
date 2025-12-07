@@ -14,15 +14,34 @@
 
 Meet our amazing team that collaborated on this project:
 
-| Member | Image | LinkedIn |
-|--------|--------|----------|
-| **Hilda Posada** | <img src="assets/hilda-posada.jpeg" width="80" style="border-radius: 50%;" /> | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/hildaposada/) |
-| **Ahmed Faraz** | <img src="assets/ahmed-faraz.jpeg" width="80" style="border-radius: 50%;" /> | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/aahmedfaraz/) |
-| **Fahad Khan** | <img src="assets/fahad-khan.jpeg" width="80" style="border-radius: 50%;" /> | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/fahad-cybersecurity-ai/) |
-| **Mamadou Ba** | <img src="assets/mamadou-ba.jpeg" width="80" style="border-radius: 50%;" /> | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/ba-mamadou2004/) |
-| **Anshika Chouhan** | <img src="assets/anshika-chouhan.png" width="80" style="border-radius: 50%;" /> | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/anshika-c-78a6532a1/) |
-
----
+  <table>
+    <tr>
+      <td>
+        <a href="https://www.linkedin.com/in/hildaposada/">
+          <img src="assets/hilda-posada.jpeg" width="100" alt="Hilda Posada"/><br>
+          <img src="https://img.shields.io/badge/Hilda-Posada-blue?style=flat&logo=linkedin" alt="Hilda Posada"/>
+        </a>
+      </td>
+      <td>         
+        <a href="https://www.linkedin.com/in/aahmedfaraz/">
+          <img src="assets/ahmed-faraz.jpeg" width="100" alt="picture"/><br>
+          <img src="https://img.shields.io/badge/Ahmed-Faraz-blue?style=flat&logo=linkedin" alt="LinkedIn Profile"/>
+        </a>
+      </td>
+      <td>
+        <a href="https://www.linkedin.com/in/fahad-cybersecurity-ai/">
+          <img src="assets/fahad-khan.jpeg" width="100" alt="pictue"/><br>
+          <img src="https://img.shields.io/badge/Fahad-Khan-blue?style=flat&logo=linkedin" alt="LinkedIn Profile"/>
+        </a>
+      </td>
+      <td>
+       <a href="https://www.linkedin.com/in/ba-mamadou2004/">
+          <img src="assets/mamadou-ba.jpeg" width="100" alt="picture"/><br>
+          <img src="https://img.shields.io/badge/Mamadou-Ba-blue?style=flat&logo=linkedin" alt="LinkedIn Profile"/>
+        </a>
+      </td>
+    </tr>
+  </table>
 
 ## 📋 Table of Contents
 
@@ -543,40 +562,6 @@ git push origin feature/amazing-feature
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-## Our Team
-  <table>
-    <tr>
-      <td>
-        <a href="https://github.com/">
-          <img src="https://avatars.githubusercontent.com/u/139736274?s=400&u=92616bfda6d10b31bd7fcf134741981dd89b57ab&v=4" width="100" alt="Hilda Posada"/><br>
-          <sub><b>Hilda Posada</b></sub>
-        </a>
-      </td>
-      <td>         
-        <a href="https://github.com/">
-          <img src="https://avatars.githubusercontent.com" width="100" alt="picture"/><br>
-          <sub><b>name</b></sub>
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/">
-          <img src="https://avatars.githubusercontent.com" width="100" alt="pictue"/><br>
-          <sub><b>name</b></sub>
-        </a>
-      </td>
-      <td>
-       <a href="https://github.com/">
-          <img src="https://avatars.githubusercontent.com" width="100" alt="picture"/><br>
-          <sub><b>name</b></sub>
-        </a>
-      </td>
-      <td>
-    </tr>
-  </table>
-
----
 
 ## 🙏 Acknowledgments
 
