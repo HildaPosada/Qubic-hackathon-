@@ -35,7 +35,9 @@ class Settings(BaseSettings):
     # AI Configuration
     OPENAI_API_KEY: str = ""
     ANTHROPIC_API_KEY: str = ""
-    AI_MODEL: str = "gpt-4"  # or "claude-3-opus-20240229"
+    HUGGINGFACE_API_KEY: str = ""
+    AI_PROVIDER: str = "huggingface"  # openai, anthropic, or huggingface
+    AI_MODEL: str = "bigcode/starcoder"  # or "gpt-4" or "claude-3-opus-20240229"
     AI_TEMPERATURE: float = 0.7
     AI_MAX_TOKENS: int = 2000
 

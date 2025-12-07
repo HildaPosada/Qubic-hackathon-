@@ -69,18 +69,33 @@ Generate ONLY the C++ code with inline comments explaining key sections."""
             if additional_context:
                 user_prompt += f"\n\nAdditional requirements: {additional_context}"
 
-            # Call OpenAI API
-            response = self.client.chat.completions.create(
-                model=settings.AI_MODEL,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt}
-                ],
-                temperature=settings.AI_TEMPERATURE,
-                max_tokens=settings.AI_MAX_TOKENS
-            )
-
-            code = response.choices[0].message.content.strip()
+            # Call AI API based on provider
+            if self.provider == "openai":
+                response = self.client.chat.completions.create(
+                    model=settings.AI_MODEL,
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": user_prompt}
+                    ],
+                    temperature=settings.AI_TEMPERATURE,
+                    max_tokens=settings.AI_MAX_TOKENS
+                )
+                code = response.choices[0].message.content.strip()
+            
+            elif self.provider == "huggingface":
+                # Use Hugging Face Inference API (FREE!)
+                full_prompt = f"{system_prompt}\n\n{user_prompt}\n\nC++ Code:"
+                response = self.client.text_generation(
+                    full_prompt,
+                    model=settings.AI_MODEL,
+                    max_new_tokens=settings.AI_MAX_TOKENS,
+                    temperature=settings.AI_TEMPERATURE,
+                    return_full_text=False
+                )
+                code = response.strip()
+            
+            else:
+                raise ValueError(f"Unsupported provider: {self.provider}")
 
             # Extract code from markdown if present
             if "```cpp" in code:
