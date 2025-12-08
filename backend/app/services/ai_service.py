@@ -96,15 +96,21 @@ Generate ONLY the C++ code with inline comments explaining key sections."""
             
             elif self.provider == "huggingface":
                 # Use Hugging Face Inference API (FREE!)
+                logger.info(f"🤗 Using Hugging Face model: {settings.AI_MODEL}")
                 full_prompt = f"{system_prompt}\n\n{user_prompt}\n\nC++ Code:"
-                response = self.client.text_generation(
-                    full_prompt,
-                    model=settings.AI_MODEL,
-                    max_new_tokens=settings.AI_MAX_TOKENS,
-                    temperature=settings.AI_TEMPERATURE,
-                    return_full_text=False
-                )
-                code = response.strip()
+                try:
+                    response = self.client.text_generation(
+                        full_prompt,
+                        model=settings.AI_MODEL,
+                        max_new_tokens=settings.AI_MAX_TOKENS,
+                        temperature=settings.AI_TEMPERATURE,
+                        return_full_text=False
+                    )
+                    code = response.strip()
+                    logger.info(f"✅ Hugging Face generated {len(code)} characters")
+                except Exception as hf_error:
+                    logger.error(f"❌ Hugging Face error: {hf_error}")
+                    raise
             
             else:
                 raise ValueError(f"Unsupported provider: {self.provider}")

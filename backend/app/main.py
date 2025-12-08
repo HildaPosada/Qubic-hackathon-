@@ -99,7 +99,11 @@ async def health_check():
     return {
         "status": "healthy",
         "environment": settings.ENVIRONMENT,
-        "mock_mode": settings.MOCK_MODE
+        "mock_mode": settings.MOCK_MODE,
+        "ai_provider": settings.AI_PROVIDER,
+        "ai_model": settings.AI_MODEL,
+        "huggingface_key_set": bool(settings.HUGGINGFACE_API_KEY),
+        "openai_key_set": bool(settings.OPENAI_API_KEY)
     }
 
 @app.websocket("/ws")
